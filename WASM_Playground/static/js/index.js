@@ -15,9 +15,8 @@ async function main() {
                 import sys
                 sys.stdout = io.StringIO()
               `);
-            let result = pyodide.runPython(code);
+            pyodide.runPython(code);
             let stdout = pyodide.runPython("sys.stdout.getvalue()");
-            console.log(stdout)
             outputElement.textContent = stdout;
         } catch (error) {
             outputElement.textContent = "Error: " + error.message;
